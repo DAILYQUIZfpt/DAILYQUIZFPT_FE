@@ -1,7 +1,9 @@
-export default function Home() {
+const MarketingPage = () => {
   return (
-    <main>
+    <main className="h-full">
       <div>hello</div>
     </main>
   );
-}
+};
+
+export default MarketingPage;

@@ -1,4 +1,4 @@
-const MarketingPage = () => {
+const DashboardPage = () => {
   return (
     <main className="h-full">
       <div>hello</div>
@@ -6,4 +6,4 @@ const MarketingPage = () => {
   );
 };
 
-export default MarketingPage;
+export default DashboardPage;

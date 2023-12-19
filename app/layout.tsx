@@ -4,6 +4,8 @@ import "./globals.css";
 import { siteConfig } from "@/config/site";
 import TanstackProvider from "@/components/providers/TanstackProvider";
 import ReduxProvider from "@/components/providers/ReduxProvider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import AuthProvider from "@/components/providers/AuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -28,9 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ReduxProvider>
-          <TanstackProvider>{children}</TanstackProvider>
-        </ReduxProvider>
+        <AuthProvider>
+          <ReduxProvider>
+            <TanstackProvider>
+              <TooltipProvider>{children}</TooltipProvider>
+            </TanstackProvider>
+          </ReduxProvider>
+        </AuthProvider>
       </body>
     </html>
   );

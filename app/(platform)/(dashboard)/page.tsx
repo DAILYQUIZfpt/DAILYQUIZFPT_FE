@@ -1,4 +1,4 @@
-import { authOptions } from "@/lib/authOptions";
+import { authOptions } from "@/app/api/auth/[...nextauth]/_options";
 import { getServerSession } from "next-auth";
 const DashboardPage = async () => {
   const session = await getServerSession(authOptions);

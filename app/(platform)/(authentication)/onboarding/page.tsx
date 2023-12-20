@@ -1,20 +1,23 @@
-import { Header } from "./_components/header";
-import { Landing } from "./_components/landing";
-import { ProgressBar } from "./_components/progressbar";
-import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/_options";
-const OnBoardingPage = async () => {
-  const session = await getServerSession(authOptions);
+"use client";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
-  if (session) {
-    return redirect("/");
-  }
+import { Landing } from "./_components/landing";
+import { LoginForm } from "./_components/loginform";
+import { Login } from "./_components/login";
+
+const OnBoardingPage = () => {
+  const dispatch = useDispatch();
+  const isOpenLanding = useSelector(
+    (state: RootState) => state.app.isOpenLanding
+  );
+  const isOpenLogin = useSelector((state: RootState) => state.app.isOpenLogin);
+  console.log("landing", isOpenLanding);
+  console.log("isOpenLogin", isOpenLogin);
   return (
     <>
-      <ProgressBar></ProgressBar>
-      <Header></Header>
-      <Landing></Landing>
+      {isOpenLanding && <Landing></Landing>}
+      {isOpenLogin && <Login></Login>}
     </>
   );
 };

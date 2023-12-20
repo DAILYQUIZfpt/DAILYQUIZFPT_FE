@@ -6,7 +6,11 @@ import { cn } from "@lib/utils";
 import { Logo } from "@/components/logo";
 
 import { useDispatch } from "react-redux";
-import { setProgressWidth } from "@/redux/slices/app";
+import {
+  setProgressWidth,
+  toogleLanding,
+  toogleLogin,
+} from "@/redux/slices/app";
 
 const textFont = Poppins({
   subsets: ["latin"],
@@ -16,6 +20,8 @@ export const Header = () => {
   const dispatch = useDispatch();
   const handleClickLogin = (width: number) => {
     dispatch(setProgressWidth(width));
+    dispatch(toogleLanding(false));
+    dispatch(toogleLogin(true));
   };
   return (
     <header className="max-w-[1200px] px-6 mt-6 md:mt-20 w-full mx-auto flex items-center justify-between">

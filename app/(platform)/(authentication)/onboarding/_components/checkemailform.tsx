@@ -12,7 +12,6 @@ import { z } from "zod";
 type Input = z.infer<typeof CheckEmailSchema>;
 
 export const CheckEmailForm = () => {
-  const [inputEmail, setInputEmail] = useState<string>();
   const [isInputFocus, setIsInputFocus] = useState<boolean>(false);
   const {
     register,

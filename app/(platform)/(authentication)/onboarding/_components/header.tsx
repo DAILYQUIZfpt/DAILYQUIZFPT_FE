@@ -25,7 +25,7 @@ export const Header = () => {
   };
   return (
     <header className="max-w-[1200px] px-6 mt-6 md:mt-20 w-full mx-auto flex items-center justify-between">
-      <Logo></Logo>
+      <Logo size="lg"></Logo>
       <div className="flex items-center gap-3">
         <span className="text-[#a8b3cf] text-base cursor-pointer hidden md:block">
           Already a daily.quiz member?

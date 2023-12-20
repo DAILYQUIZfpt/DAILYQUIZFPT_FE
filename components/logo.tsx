@@ -18,25 +18,40 @@ const textFont = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const Logo = () => {
+interface LogoProps {
+  size: "sm" | "lg";
+}
+
+export const Logo = ({ size }: LogoProps) => {
   return (
     <Tooltip>
       <TooltipTrigger>
-        {" "}
         <Link href="/">
-          <div className="hover:opacity-75 transition items-end gap-x-2 hidden md:flex">
+          <div
+            className={cn(
+              "hover:opacity-75 transition  gap-x-2 hidden md:flex",
+              size === "lg" ? "items-end" : "items-center"
+            )}
+          >
             <Image
               src={LogoLight}
               alt="logo"
-              height={38}
+              height={size === "lg" ? 38 : 18}
               className="z-10"
             ></Image>
-            <p className={cn("text-3xl text-white", headingFont.className)}>
+            <p
+              className={cn(
+                " text-white",
+                headingFont.className,
+                size === "lg" ? "text-3xl" : "text-base"
+              )}
+            >
               daily
               <span
                 className={cn(
-                  "text-2xl font-normal text-neutral-500",
-                  textFont.className
+                  " font-normal text-neutral-500",
+                  textFont.className,
+                  size === "lg" ? "text-2xl" : "text-xs"
                 )}
               >
                 .quiz

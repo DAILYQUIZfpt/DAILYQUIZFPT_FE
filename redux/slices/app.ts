@@ -4,6 +4,9 @@ const initialState = {
   progressWidth: 0,
   isOpenLanding: true,
   isOpenLogin: false,
+  isOpenForgot: false,
+  isOpenVerification: false,
+  isOpenChangePassword: false,
 };
 
 export const appSlice = createSlice({
@@ -19,10 +22,25 @@ export const appSlice = createSlice({
     toogleLogin: (state, action) => {
       state.isOpenLogin = action.payload;
     },
+    toogleForgot: (state, action) => {
+      state.isOpenForgot = action.payload;
+    },
+    toogleVerification: (state, action) => {
+      state.isOpenVerification = action.payload;
+    },
+    toogleChangePassword: (state, action) => {
+      state.isOpenChangePassword = action.payload;
+    },
   },
 });
 
-export const { setProgressWidth, toogleLanding, toogleLogin } =
-  appSlice.actions;
+export const {
+  setProgressWidth,
+  toogleLanding,
+  toogleLogin,
+  toogleForgot,
+  toogleVerification,
+  toogleChangePassword,
+} = appSlice.actions;
 
 export default appSlice.reducer;

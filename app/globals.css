@@ -96,3 +96,34 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+/* Typo text */
+
+.typo-body {
+  font-size: 17px;
+  line-height: 22px;
+}
+
+.typo-callout {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.typo-caption1 {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* Shadow */
+
+.inset-shadow-valid {
+  box-shadow: inset 12px 0px 12px -5px #39e58c; /* Adjust the values as needed */
+}
+
+.inset-shadow-invalid {
+  box-shadow: inset 10px 0px 10px -5px #e04337; /* Adjust the values as needed */
+}
+
+.inset-shadow-hover {
+  box-shadow: inset 7px 0px 7px -5px white; /* Adjust the values as needed */
+}

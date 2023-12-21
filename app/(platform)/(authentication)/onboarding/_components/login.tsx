@@ -23,7 +23,7 @@ export const Login = () => {
   return (
     <main className="w-full ">
       <div className="px-10 py-8 w-full flex justify-start">
-        <Logo></Logo>
+        <Logo size="sm"></Logo>
       </div>
       <div className="flex mx-auto flex-wrap justify-center w-full px-6 max-w-[1200px] flex-grow">
         <div className="flex overflow-y-auto z-1 flex-col max-w-[480px] w-full h-full text-white">
@@ -45,6 +45,14 @@ export const Login = () => {
               <div className="flex-1 h-px bg-[#a8b3cf33]"></div>
             </div>
             <LoginForm></LoginForm>
+            <div className="flex items-center p-3 w-full h-16 mt-4 justify-center border-t-[1px] border-[#a8b3cf33] ">
+              <p className="cursor-pointer  text-[#a8b3cf] text-[15px] leading-[20px]">
+                Not a member yet?
+              </p>
+              <button className="text-white cursor-pointer underline ml-1 text-[15px] leading-[20px]">
+                Sign up
+              </button>
+            </div>
           </div>
         </div>
       </div>

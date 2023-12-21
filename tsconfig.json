@@ -23,8 +23,8 @@
       "@components/*": ["./components/*"],
       "@ui/*": ["./components/ui/*"],
       "@lib/*": ["./lib/*"],
-      "@logo/*": ["./assets/logo/*"],
-
+      "@hook/*": ["./lib/hooks/*"],
+      "@logo/*": ["./assets/logo/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { FieldError, UseFormRegister } from "react-hook-form";
+import { FieldError, UseFormRegister, UseFormWatch } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { Mail, Lock, Eye, EyeOff, ShieldEllipsis } from "lucide-react";
+import { PasswordProgressBar } from "@/app/(platform)/(authentication)/onboarding/_components/passwordprogressbar";
 
 type InputFieldProps = {
   name: string;
   label: string;
   placeholder: string;
   register: UseFormRegister<any>;
+  watch?: UseFormWatch<any>;
   type?: string;
   error?: FieldError;
   errorType?: "danger" | "default";
@@ -23,10 +25,12 @@ const InputField: React.FC<InputFieldProps> = ({
   error,
   errorType = "default",
   isValid,
+  watch,
 }) => {
+  const passwordValue = watch ? watch("password") : "";
+
   const [isFocused, setIsFocused] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
 
@@ -34,7 +38,7 @@ const InputField: React.FC<InputFieldProps> = ({
     setIsPasswordVisible(!isPasswordVisible);
   };
   return (
-    <div className="flex flex-col items-stretch">
+    <div className="flex relative flex-col items-stretch">
       <div
         className={cn(
           "flex border-l-[2px] border-transparent hover:bg-[#a8b3cf33]  cursor-text relative rounded-[14px] flex-row items-center pl-3 px-4 h-12 overflow-hidden bg-[#a8b3cf14]",
@@ -65,6 +69,9 @@ const InputField: React.FC<InputFieldProps> = ({
             className="self-stretch text-ellipsis text-[#a8b3cf] bg-transparent hover:text-white focus:outline-none"
           />
         </div>
+        {type === "password" && (
+          <PasswordProgressBar password={passwordValue!} />
+        )}
         {type === "password" && (
           <div onClick={togglePasswordVisibility} className="cursor-pointer">
             {isPasswordVisible ? (

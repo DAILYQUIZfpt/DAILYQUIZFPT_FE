@@ -15,6 +15,7 @@ export const ChangePassword = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isValid },
   } = useForm<Input>({
     mode: "onChange",
@@ -56,6 +57,7 @@ export const ChangePassword = () => {
               error={errors.password}
               errorType="danger"
               isValid={isValid}
+              watch={watch}
             />
             <button
               type="submit"

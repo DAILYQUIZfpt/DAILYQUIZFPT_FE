@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { CheckEmailSchema } from "@/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AlertTriangle, MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 
 import { z } from "zod";
 import InputField from "@/components/inputField";

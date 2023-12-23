@@ -43,15 +43,10 @@ export const Verification = () => {
     }
   };
 
-  const handleVerify = () => {
-    dispatch(toogleVerification(false));
-    dispatch(toogleChangePassword(true));
-  };
-
   const onSubmit: SubmitHandler<Input> = (data) => {
     console.log(data);
-    dispatch(toogleForgot(false));
-    dispatch(toogleVerification(true));
+    dispatch(toogleVerification(false));
+    dispatch(toogleChangePassword(true));
   };
   return (
     <main className="w-full">
@@ -77,7 +72,6 @@ export const Verification = () => {
               errorType="danger"
             />
             <button
-              onClick={handleVerify}
               type="submit"
               aria-busy="false"
               className="px-5 mt-6  hover:bg-[#cfd6e6] rounded-[12px] h-10 py-5 flex items-center justify-center text-[#0e1217]  text-[15px] leading-[20px] font-bold bg-white  "

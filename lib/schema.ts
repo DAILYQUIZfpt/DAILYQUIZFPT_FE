@@ -18,7 +18,8 @@ export const VerificationSchema = z.object({
 });
 
 export const RegisterSchema = z.object({
-  username: z.string().optional(),
+  fullname: z.string(),
+  username: z.string().min(4, "Username needs a minimum length of 4s"),
   email: z.string().email("This field is required"),
   password: z
     .string()

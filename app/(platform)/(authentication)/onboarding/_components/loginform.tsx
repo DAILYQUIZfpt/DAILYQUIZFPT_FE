@@ -1,11 +1,9 @@
 "use client";
-import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { LogInSchema } from "@/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { AlertTriangle } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { toogleForgot, toogleLogin } from "@/redux/slices/app";
 import InputField from "@/components/inputField";

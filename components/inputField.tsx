@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { FieldError, UseFormRegister, UseFormWatch } from "react-hook-form";
 import { cn } from "@/lib/utils";
-import { Mail, Lock, Eye, EyeOff, ShieldEllipsis } from "lucide-react";
+import {
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  ShieldEllipsis,
+  User,
+  AtSign,
+} from "lucide-react";
 import { PasswordProgressBar } from "@/app/(platform)/(authentication)/onboarding/_components/passwordprogressbar";
 
 type InputFieldProps = {
@@ -42,7 +50,8 @@ const InputField: React.FC<InputFieldProps> = ({
       <div
         className={cn(
           "flex border-l-[2px] border-transparent hover:bg-[#a8b3cf33]  cursor-text relative rounded-[14px] flex-row items-center pl-3 px-4 h-12 overflow-hidden bg-[#a8b3cf14]",
-          isFocused && "border-white border-[1px]",
+          isFocused &&
+            "border-white border-[1px] bg-black text-white hover:bg-black",
           error
             ? " inset-shadow-invalid"
             : "hover:border-l-white hover:border-l-[2px] border-l-[2px] ",
@@ -50,11 +59,15 @@ const InputField: React.FC<InputFieldProps> = ({
         )}
       >
         {name === "email" ? (
-          <Mail className="h-6 w-6 mr-2 text-[#a8b3cf] hover:text-white"></Mail>
+          <Mail className="h-6 w-6 mr-2 text-[#a8b3cf] hover:text-white" />
         ) : name === "password" ? (
-          <Lock className="h-6 w-6 mr-2 text-[#a8b3cf] hover:text-white"></Lock>
+          <Lock className="h-6 w-6 mr-2 text-[#a8b3cf] hover:text-white" />
         ) : name === "code" ? (
-          <ShieldEllipsis className="h-6 w-6 mr-2 text-[#a8b3cf] hover:text-white"></ShieldEllipsis>
+          <ShieldEllipsis className="h-6 w-6 mr-2 text-[#a8b3cf] hover:text-white" />
+        ) : name === "fullname" ? (
+          <User className="h-6 w-6 mr-2 text-[#a8b3cf] hover:text-white" />
+        ) : name === "username" ? (
+          <AtSign className="h-6 w-6 mr-2 text-[#a8b3cf] hover:text-white" />
         ) : (
           ""
         )}
@@ -66,7 +79,9 @@ const InputField: React.FC<InputFieldProps> = ({
             placeholder={isFocused ? "" : placeholder}
             onFocus={handleFocus}
             onBlur={handleBlur}
-            className="self-stretch text-ellipsis text-[#a8b3cf] bg-transparent hover:text-white focus:outline-none"
+            className={cn(
+              "self-stretch text-ellipsis text-[#a8b3cf] bg-transparent hover:text-white focus:outline-none"
+            )}
           />
         </div>
         {type === "password" && (
@@ -92,9 +107,8 @@ const InputField: React.FC<InputFieldProps> = ({
           </div>
         )}
       </div>
-
       {isValid ? (
-        <div className={cn("mt-1 px-2 h-4 typo-caption1 text-[#39e58c]  ")}>
+        <div className={cn("mt-1 px-2 h-4 typo-caption1 text-[#39e58c]")}>
           Strong as it gets
         </div>
       ) : (

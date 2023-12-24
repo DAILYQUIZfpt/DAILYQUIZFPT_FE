@@ -7,6 +7,7 @@ import { Login } from "./_components/login";
 import { ForgotPassword } from "./_components/forgot";
 import { Verification } from "./_components/verification";
 import { ChangePassword } from "./_components/changepassword";
+import { Register } from "./_components/register";
 
 const OnBoardingPage = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ const OnBoardingPage = () => {
   const isOpenChangePassword = useSelector(
     (state: RootState) => state.app.isOpenChangePassword
   );
+  const isOpenRegister = useSelector(
+    (state: RootState) => state.app.isOpenRegister
+  );
   return (
     <>
       {isOpenLanding && <Landing />}
@@ -30,6 +34,7 @@ const OnBoardingPage = () => {
       {isOpenForgot && <ForgotPassword />}
       {isOpenVerification && <Verification />}
       {isOpenChangePassword && <ChangePassword />}
+      {isOpenRegister && <Register />}
     </>
   );
 };

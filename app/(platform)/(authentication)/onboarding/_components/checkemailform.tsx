@@ -8,7 +8,7 @@ import { MoveRight } from "lucide-react";
 import { z } from "zod";
 import InputField from "@/components/inputField";
 import { useDispatch } from "react-redux";
-import { toogleLanding, toogleLogin } from "@/redux/slices/app";
+import { toogleLanding, toogleLogin, toogleRegister } from "@/redux/slices/app";
 import ErrorMessage from "@/components/errorMessage";
 
 type Input = z.infer<typeof CheckEmailSchema>;
@@ -29,7 +29,8 @@ export const CheckEmailForm = () => {
   });
 
   const onSubmit: SubmitHandler<Input> = (data) => {
-    console.log(data.email);
+    dispatch(toogleLanding(false));
+    dispatch(toogleRegister(true));
   };
 
   const handleLogin = () => {
@@ -49,11 +50,11 @@ export const CheckEmailForm = () => {
         register={register}
         error={errors.email}
       />
-      <ErrorMessage
+      {/* <ErrorMessage
         message=" Email is taken. Existing user?"
         action="Log in"
         onClick={handleLogin}
-      ></ErrorMessage>
+      ></ErrorMessage> */}
       <button
         type="submit"
         aria-busy="false"

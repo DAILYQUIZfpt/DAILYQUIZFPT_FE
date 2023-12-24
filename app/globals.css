@@ -109,6 +109,16 @@ body,
   line-height: 20px;
 }
 
+.typo-subhead {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.typo-footnote {
+  font-size: 13px;
+  line-height: 18px;
+}
+
 .typo-caption1 {
   font-size: 12px;
   line-height: 16px;

@@ -7,6 +7,7 @@ const initialState = {
   isOpenForgot: false,
   isOpenVerification: false,
   isOpenChangePassword: false,
+  isOpenRegister: false,
 };
 
 export const appSlice = createSlice({
@@ -31,6 +32,9 @@ export const appSlice = createSlice({
     toogleChangePassword: (state, action) => {
       state.isOpenChangePassword = action.payload;
     },
+    toogleRegister: (state, action) => {
+      state.isOpenRegister = action.payload;
+    },
   },
 });
 
@@ -41,6 +45,7 @@ export const {
   toogleForgot,
   toogleVerification,
   toogleChangePassword,
+  toogleRegister,
 } = appSlice.actions;
 
 export default appSlice.reducer;
